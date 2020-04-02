@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../boot/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div id="top"></div>
+
+<div class="container-fluid col-md-12">
+    <div class="page-header" style="margin-top: -20px">
+        <h1>个人中心
+            <small>在这里管理和查看您的信息</small>
+        </h1>
+    </div>
+    <div class="container col-md-4">
+        <div class="jumbotron">
+            <div class="panel panel-primary">
+                <div class="panel-heading">个人资料</div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">姓名：杨老师</li>
+                    <li class="list-group-item">性别：男</li>
+                    <li class="list-group-item">学院：计算机学院</li>
+                    <li class="list-group-item">电话：13103615285</li>
+                </ul>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">互动消息</div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">未处理：26条</li>
+                </ul>
+            </div>
+            <button class="btn btn-primary">立即处理</button>
+        </div>
+    </div>
+    <div class="container col-md-8">
+        <div class="jumbotron">
+            <div class="panel panel-danger">
+                <div class="panel-heading">今日课程</div>
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;"><font
+                                class="glyphicon glyphicon-book">&nbsp;课程名称</font></a></th>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;"><font
+                                class="glyphicon glyphicon-home">&nbsp;上课地点</font></a></th>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;"><font
+                                class="glyphicon glyphicon-time">&nbsp;上课时间</font></a></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">电子信息工程学院</th>
+                        <th style="text-align: center;">10.50</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+                    style="margin-top: 8px">
+                添加知识点
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">知识点添加</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="project">所属课程</label>
+                                    <select class="form-control" id="project" name="project">
+                                        <option value="1">Java</option>
+                                        <option value="2">Python</option>
+                                        <option value="1">计算机组成原理</option>
+                                        <option value="2">计算机网络</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="knowledge">请输入要添加的知识点</label>
+                                    <input type="text" class="form-control" id="knowledge" placeholder="请输入知识点名称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="knowledgeList">批量添加</label>
+                                    <textarea class="form-control" id="knowledgeList" rows="6"
+                                              placeholder="请输入多个知识点，中间用 & 分割，如果不需要批量添加则切勿输入"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="subbmitKnowledge()">
+                                    提交
+                                </button>
+                                <button type="reset" class="btn btn-warning">清空</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-warning" style="margin-top: 8px">导出课程清单</button>
+        </div>
+    </div>
+
+    <div class="container-fluid col-md-12">
+        <div class="jumbotron">
+            <div class="panel panel-warning">
+                <div class="panel-heading">我的文章</div>
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;">文章名称</a></th>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;">作者</a></th>
+                        <th style="text-align: center;"><a href="javascript:void(0)"
+                                                           style="text-decoration: none;">操作</a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;">Java公开课01</th>
+                        <th style="text-align: center;">杨老师</th>
+                        <th style="text-align: center;"><a class="btn btn-success">查看</a><a
+                                class="btn btn-danger">删除</a></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#article">
+                添加新文章
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="article" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myArticle">添加新文章</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">请输入文章标题</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入文章标题">
+                                </div>
+                                <div class="form-group">
+                                    <label for="presentation">请输入文章介绍</label>
+                                    <input type="text" class="form-control" id="presentation" placeholder="请输入文章介绍（20字以内）">
+                                </div>
+                                <div class="form-group">
+                                    <label for="content">文章内容</label>
+                                    <textarea class="form-control" id="content" rows="10"
+                                              placeholder="请输入文章内容"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-success" data-dismiss="modal" data-dismiss="modal" onclick="subbmitArticle()">
+                                    提交
+                                </button>
+                                <button type="reset" class="btn btn-warning">清空</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="foot"></div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../boot/js/jquery-1.11.3.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../boot/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $("#foot").load("../jsp/foot.html");
+    $("#top").load("../jsp/top.html");
+</script>
+</body>
+</html>

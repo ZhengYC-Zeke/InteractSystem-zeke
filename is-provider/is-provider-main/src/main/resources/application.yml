@@ -1,0 +1,40 @@
+server:
+  port: 8001
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#修改Eureka上的默认描述
+  instance:
+    instance-id: provider-main-8001
+#为true时显示服务ip
+    prefer-ip-address: true
+
+#info配置
+info:
+  app.name: zyc-springcloud
+  company: zyc
+
+spring:
+  application:
+    name: provider-main-8001
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 19971029
+    url: jdbc:mysql://www.zekez.xyz:3306/is?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    port: 7000
+    host: www.zekez.xyz
+    database: 6
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../boot/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../jqgrid/css/trirand/ui.jqgrid-bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="top"></div>
+<div class="container-fluid col-md-12">
+    <hr>
+</div>
+
+<div class="container col-md-10 col-md-offset-1">
+    <table id="tt"></table>
+    <div id="pg"></div>
+</div>
+
+<div class="container-fluid col-md-12">
+    <hr>
+</div>
+
+<div id="foot"></div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../boot/js/jquery-1.11.3.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../boot/js/bootstrap.min.js"></script>
+<script src="../jqgrid/js/trirand/i18n/grid.locale-cn.js"></script>
+<script src="../jqgrid/js/trirand/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#tt').jqGrid({
+            styleUI: 'Bootstrap',// 用于整合bootstrap的样式
+            url:'/student/selectAllByPage',
+            datatype: 'json',
+            cellEdit: false,//开启单元格编辑
+            colNames: ['ID', '学生姓名', '学生性别', '所属院系', '所属班级', '联系电话', '职位', '操作'],
+            colModel: [
+                {name: 'id', hidden: true},
+                {name: 'name', align: 'center'},
+                {name: 'sex', align: 'center'},
+                {name: 'college', align: 'center'},
+                {name: 'grade', align: 'center'},
+                {name: 'phone', align: 'center'},
+                {name: 'position', align: 'center'},
+                {
+                    name: "xx",
+                    formatter: function (cellvalue, options, rowObject) {
+                        return "<button type='button' class='btn btn-danger' onclick=\"seeAll('" + rowObject.id + "')\">学生详情</button>";
+                    }
+                }
+            ],
+            pager: '#pg', // 指定分页工具栏
+            autowidth: true, // 自动计算列宽（依据父容器大小）
+            rowNum: 6, // 默认每页显示的条数
+            rownumbers: true, // 显示行号
+            page: 1, // 默认显示第几页
+            viewrecords: true, // 是否显示信息的总记录数
+            caption: '学生列表', // 设置表格标题
+            height: 332, // 设置表格高度
+            hidegrid: false// 指定是否显示折叠表格按钮
+        }).navGrid('#pg', {edit: false, add: false, del: false, search: false})
+    });
+    $("#foot").load("../jsp/foot.html");
+    $("#top").load("../jsp/top.html");
+
+    //查看详情
+    function seeAll(id) {
+        window.location.href = '' + id;
+    }
+</script>
+</body>
+</html>
